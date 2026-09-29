@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mission Tiwari 🎂</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="progress" id="progress">
+      Stage 1 of 6 ❤️
+    </div>
+
+    <!-- STAGE 1 -->
+    <div class="stage active" id="stage1">
+
+      <div class="big">🎂</div>
+
+      <h1>Hey Tiwari 😎</h1>
+
+      <p>
+        Today is a little more special than usual...
+        because it's <b>Tiwari's birthday</b>. 🎉
+      </p>
+
+      <div class="meme">
+        🚨 BIRTHDAY ALERT 🚨<br><br>
+        Tiwari has entered the birthday mission. 🫡😂
+      </div>
+
+      <p>
+        But wait... 👀<br>
+        Your surprise isn't going to be that easy.
+      </p>
+
+      <button onclick="nextStage(2)">
+        Start Mission 🚀
+      </button>
+
+    </div>
+
+
+    <!-- STAGE 2 -->
+    <div class="stage" id="stage2">
+
+      <div class="big">🤨</div>
+
+      <h2>Security Check 🔍</h2>
+
+      <p>
+        Before proceeding, we need to confirm something...
+      </p>
+
+      <div class="meme">
+        Are you actually Tiwari? 🤔<br>
+        Because this website is getting suspicious. 💀
+      </div>
+
+      <button onclick="nextStage(3)">
+        YES, Obviously 😎
+      </button>
+
+      <button onclick="fakeButton()">
+        No 😭
+      </button>
+
+      <p id="fakeMessage"></p>
+
+    </div>
+
+
+    <!-- STAGE 3 -->
+    <div class="stage" id="stage3">
+
+      <div class="big">🧠</div>
+
+      <h2>IQ Test 🤓</h2>
+
+      <p>
+        Who is the most special person today?
+      </p>
+
+      <button class="option" onclick="wrong()">
+        Me 😎
+      </button>
+
+      <button class="option" onclick="wrong()">
+        My Friends 🐒
+      </button>
+
+      <button class="option" onclick="wrong()">
+        My Phone 📱
+      </button>
+
+      <button class="option" onclick="correct()">
+        Tiwari ❤️
+      </button>
+
+      <p id="wrongMessage"></p>
+
+    </div>
+
+
+    <!-- STAGE 4 -->
+    <div class="stage" id="stage4">
+
+      <div class="big">🔐</div>
+
+      <h2>Secret Password 👀</h2>
+
+      <div class="meme">
+        Hint: The answer is YOU ❤️<br>
+        Don't overthink it, Einstein. 😂
+      </div>
+
+      <input
+        id="password"
+        type="text"
+        placeholder="Enter password..."
+      >
+
+      <br>
+
+      <button onclick="checkPassword()">
+        Unlock 🔓
+      </button>
+
+      <p id="passwordMessage"></p>
+
+    </div>
+
+
+    <!-- STAGE 5 -->
+    <div class="stage" id="stage5">
+
+      <div class="big">🎁</div>
+
+      <h2>Congratulations! 🥳</h2>
+
+      <div class="meme">
+        You survived all the nonsense. 😂<br><br>
+        Tiwari.exe is still working. ✅
+      </div>
+
+      <p>
+        Your actual surprise is finally here...
+      </p>
+
+      <p>
+        But there's just ONE tiny problem. 👀
+      </p>
+
+      <p>
+        You have to open it yourself. 😏
+      </p>
+
+      <div class="gift" onclick="openGift()">
+        🎁
+      </div>
+
+      <p>
+        Tap the gift 👆
+      </p>
+
+    </div>
+
+
+    <!-- STAGE 6 -->
+    <div class="stage" id="stage6">
+
+      <div class="big">🥳</div>
+
+      <h1>
+        Happy Birthday<br>
+        Tiwari! ❤️
+      </h1>
+
+      <div class="meme">
+        Okay fine... 😂<br>
+        No more tests.<br>
+        No more puzzles.<br>
+        No more nonsense. 🤝
+      </div>
+
+      <p>
+        May your life always be filled with happiness,
+        may you get everything you wish for,
+        and may your smile always stay the same. ❤️
+      </p>
+
+      <p>
+        Today is all about you. 🫶
+      </p>
+
+      <div class="gif">
+        🎂 🎈 🎁 🥳
+      </div>
+
+      <h2>
+        Happy Birthday, Tiwari ❤️
+      </h2>
+
+      <p>
+        <i>
+          This crazy little surprise was made just for you. 😂❤️
+        </i>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function nextStage(number) {
+
+      document.querySelectorAll(".stage")
+        .forEach(x => x.classList.remove("active"));
+
+      document
+        .getElementById("stage" + number)
+        .classList.add("active");
+
+      document.getElementById("progress").innerText =
+        "Stage " + number + " of 6 ❤️";
+    }
+
+
+    // Funny No Button
+    function fakeButton() {
+
+      let message =
+        document.getElementById("fakeMessage");
+
+      message.innerHTML =
+        "Nice try 😂 But NO is not an option here. 🤡<br><br>" +
+        "Try again, Tiwari 😏";
+    }
+
+
+    // Wrong Answers
+    function wrong() {
+
+      let message =
+        document.getElementById("wrongMessage");
+
+      message.innerHTML =
+        "❌ WRONG! 😂<br><br>" +
+        "Tiwari.exe has stopped working. 💀";
+
+      setTimeout(() => {
+        message.innerHTML = "";
+      }, 2000);
+    }
+
+
+    // Correct Answer
+    function correct() {
+      nextStage(4);
+    }
+
+
+    // Password
+    function checkPassword() {
+
+      let answer =
+        document
+          .getElementById("password")
+          .value
+          .trim()
+          .toLowerCase();
+
+      if (
+        answer === "you" ||
+        answer === "tiwari" ||
+        answer === "you ❤️"
+      ) {
+
+        nextStage(5);
+
+      } else {
+
+        document.getElementById("passwordMessage")
+          .innerHTML =
+          "😂 Nope! Even Google couldn't save you. " +
+          "Try again. 🤓";
+      }
+    }
+
+
+    // Gift
+    function openGift() {
+
+      nextStage(6);
+
+      createHearts();
+      createConfetti();
+    }
+
+
+    // Hearts
+    function createHearts() {
+
+      const emojis = [
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "🥰",
+        "😍",
+        "😂",
+        "🫶"
+      ];
+
+      for (let i = 0; i < 60; i++) {
+
+        let heart =
+          document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+          emojis[
+            Math.floor(
+              Math.random() * emojis.length
+            )
+          ];
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+          15 + Math.random() * 25 + "px";
+
+        heart.style.animationDuration =
+          3 + Math.random() * 4 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 7000);
+      }
+    }
+
+
+    // Confetti
+    function createConfetti() {
+
+      const emojis = [
+        "🎉",
+        "🎊",
+        "✨",
+        "🎈",
+        "🥳",
+        "❤️",
+        "🎂",
+        "💖"
+      ];
+
+      for (let i = 0; i < 70; i++) {
+
+        let item =
+          document.createElement("div");
+
+        item.innerHTML =
+          emojis[
+            Math.floor(
+              Math.random() * emojis.length
+            )
+          ];
+
+        item.style.position = "fixed";
+
+        item.style.left =
+          Math.random() * 100 + "vw";
+
+        item.style.top = "-30px";
+
+        item.style.fontSize =
+          15 + Math.random() * 20 + "px";
+
+        item.style.zIndex = "100";
+
+        item.style.transition =
+          "transform 4s linear, opacity 4s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+
+          item.style.transform =
+            "translateY(110vh) rotate(720deg)";
+
+          item.style.opacity = "0";
+
+        }, 100);
+
+        setTimeout(() => {
+          item.remove();
+        }, 4500);
+      }
+    }
+
+  </script>
+
+</body>
+</html>
